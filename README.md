@@ -22,7 +22,7 @@ O usuário informa, para cada território:
 - Quantidade de tropas ⚔️  
 
 ## 📤 Saída
-Após o cadastro, o programa exibe o **estado atual do mapa**:
+Após o cadastro, o programa exibe o **estado atual do mapa**
 
 ## 📝 Observações
 - Limite de caracteres: Nome até 30, Cor até 10  
