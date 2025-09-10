@@ -1,145 +1,55 @@
-# 🗺️ Desafio WAR Estruturado – Conquista de Territórios
+🧠 Nível Mestre: Missões e Modularização Total
 
-Bem-vindo ao **Desafio WAR Estruturado!** Inspirado no famoso jogo de estratégia, este desafio convida você a programar diferentes versões do jogo WAR, evoluindo seus conhecimentos em **C** à medida que avança pelos níveis **Novato**, **Aventureiro** e **Mestre**.
+🎯 Objetivo
+Evoluir o jogo War para uma versão completa e modularizada:
+Dividir o código em funções bem definidas para melhor organização e manutenção.
+Implementar um sistema de missões aleatórias para o jogador.
+Verificar o cumprimento da missão e declarar vitória.
+Aplicar boas práticas como uso de const para leitura de dados, modularização total, passagem por referência e gerenciamento de memória.
 
-A empresa **MateCheck** contratou você para criar uma versão estruturada do WAR. Cada nível propõe novas funcionalidades, conceitos e desafios de programação. **Você escolhe por onde começar!**
+🆕 Novidades em relação ao Nível Aventureiro
+Inicialização automática dos territórios (sem cadastro manual).
+Missões aleatórias:
+Destruir o exército Verde.
+Conquistar 3 territórios.
+Menu interativo com opções para atacar, verificar missão ou sair.
+Verificação automática de vitória ao cumprir a missão.
 
----
+⚙️ Funcionalidades
+Alocação dinâmica do mapa com calloc e liberação com free.
+Inicialização pré-definida de 5 territórios com nomes, cores e tropas iniciais.
+Simulação de ataques com dados aleatórios (1 dado por lado, empate favorece atacante).
+Atualização do mapa após batalhas, incluindo conquistas.
+Menu principal:
+1: Atacar (escolher território atacante e defensor).
+2: Verificar Missão (checa se cumprida e declara vitória se sim).
+0: Sair.
+Exibição do mapa e da missão a cada rodada.
+Validações para ataques (ex: atacante deve ser do jogador e ter tropas suficientes).
 
-## 🧩 Nível Novato: Cadastro Inicial dos Territórios
+💡 Conceitos abordados
+Modularização total: Funções separadas para alocação, inicialização, exibição, ataques, missões e verificações.
+const correctness para funções de leitura (ex: exibirMapa, verificarVitoria).
+Ponteiros e passagem por referência para modificações.
+Aleatoriedade com rand() e srand(time(NULL)).
+Lógica de jogo: Batalhas, conquistas e condições de vitória.
+Função utilitária para limpar buffer de entrada.
 
-### 🎯 Objetivo
+📥 Entrada
+Escolha no menu (1, 2 ou 0).
+Para ataques: Números dos territórios atacante e defensor (1 a 5).
 
-- Criar uma `struct` chamada `Territorio`.
-- Usar um **vetor estático de 5 elementos** para armazenar os territórios.
-- Cadastrar os dados de cada território: **Nome**, **Cor do Exército**, e **Número de Tropas**.
-- Exibir o estado atual do mapa.
+📤 Saída
+Mapa atualizado com territórios, cores e tropas.
+Descrição da missão atual.
+Resultados de batalhas (dados rolados, tropas perdidas, conquistas).
+Mensagem de verificação da missão (cumprida ou não).
+Mensagem de vitória ao cumprir a missão.
 
-### ⚙️ Funcionalidades
-
-- Leitura de dados pelo terminal (`fgets` e `scanf`)
-- Impressão organizada dos dados de todos os territórios
-
-### 💡 Conceitos abordados
-
-- `struct`
-- Vetor estático
-- Entrada/saída com `scanf`, `fgets`, e `printf`
-
-### 📥 Entrada
-
-O usuário digita o nome do território, a cor do exército dominante e o número de tropas para **cada um dos 5 territórios**.
-
-### 📤 Saída
-
-
-
-## 🧗‍♂️ Nível Aventureiro: Batalhas Estratégicas
-
-### 🎯 Objetivo
-
-- Substituir o vetor estático por **alocação dinâmica com `calloc`**
-- Criar uma função para **simular ataques entre dois territórios**
-- Utilizar números aleatórios para representar dados de batalha
-
-### 🆕 Novidades em relação ao Nível Novato
-
-- Alocação dinâmica de memória com `calloc`
-- Uso de **ponteiros**
-- Laço interativo para o jogador escolher **territórios para atacar e defender**
-- Simulação de dados de ataque e defesa com `rand()`
-
-### ⚙️ Funcionalidades
-
-- Cadastro dos territórios (como no Nível Novato)
-- Fase de ataque com:
-  - Escolha de atacante e defensor
-  - Dados de ataque/defesa
-  - Lógica:
-    - Se atacante vence → defensor perde 1 tropa
-    - Se defensor perde todas → território é conquistado
-    - Empates favorecem o atacante
-
-### 💡 Conceitos abordados
-
-- Ponteiros
-- `calloc` / `free`
-- Aleatoriedade com `rand()` / `srand()`
-- Funções para modularização
-
-### 📥 Entrada
-
-- Território **atacante** (1 a 5)
-- Território **defensor** (1 a 5)
-
-### 📤 Saída
-
-Exibição do resultado da batalha, dados sorteados e mudanças no mapa.
-
-
-
-## 🧠 Nível Mestre: Missões e Modularização Total
-
-### 🎯 Objetivo
-
-- Dividir o código em funções bem definidas
-- Implementar um **sistema de missões**
-- Verificar cumprimento da missão
-- Aplicar **boas práticas** (uso de `const`, modularização, etc.)
-
-### 🆕 Diferenças em relação ao Nível Aventureiro
-
-- Modularização total em funções
-- Missões aleatórias atribuídas:
-  1. Destruir o exército **Verde**
-  2. Conquistar **3 territórios**
-- Menu interativo com opções
-
-### ⚙️ Funcionalidades
-
-- Inicialização automática dos territórios
-- Menu principal com 3 opções:
-  1. Atacar
-  2. Verificar Missão
-  3. Sair
-- Verificação de vitória da missão
-
-### 💡 Conceitos abordados
-
-- Modularização
-- `const` correctness
-- Estruturação em múltiplas funções
-- Passagem por referência
-
-### 📥 Entrada
-
-- Ações do jogador via menu:
-  - `1` - Atacar
-  - `2` - Verificar Missão
-  - `0` - Sair
-- Escolha de territórios para ataque
-
-### 📤 Saída
-
-- Mapa atualizado
-- Resultados das batalhas
-- Verificação da missão
-- Mensagem de vitória
-
-
-
-## 🏁 Conclusão
-
-Com este **Desafio WAR Estruturado**, você praticará fundamentos essenciais da linguagem **C** de forma **divertida e progressiva**.
-
-Cada nível foca em um conjunto de habilidades:
-
-- 🟢 **Novato**: `struct`, vetor, entrada/saída
-- 🔵 **Aventureiro**: ponteiros, memória dinâmica, lógica de jogo
-- 🟣 **Mestre**: modularização, design limpo, sistema de missões
-
-
-
-🚀 **Boa sorte! Avance nos níveis e torne-se um mestre da programação estratégica!**
-
-> Equipe de Ensino – MateCheck
+📝 Observações
+O jogador controla o exército "Azul" e inicia com 2 territórios.
+Ataques só são permitidos de territórios próprios com pelo menos 2 tropas para o atacante.
+Defensores não podem ser territórios próprios.
+Missões são sorteadas aleatoriamente no início.
+Executar em terminal interativo para melhor experiência.
+Use system("pause") ou similar se precisar pausar em ambientes Windows (não incluído no código para portabilidade).
