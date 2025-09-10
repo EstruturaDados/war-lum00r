@@ -52,4 +52,4 @@ Ataques só são permitidos de territórios próprios com pelo menos 2 tropas pa
 Defensores não podem ser territórios próprios.
 Missões são sorteadas aleatoriamente no início.
 Executar em terminal interativo para melhor experiência.
-Use system("pause") ou similar se precisar pausar em ambientes Windows (não incluído no código para portabilidade).
+Use system ("pause") ou similar se precisar pausar em ambientes Windows (não incluído no código para portabilidade).
